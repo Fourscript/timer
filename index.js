@@ -3,10 +3,10 @@ let timer;
 function runTimer() {
   if(timer !== -1) {
     if (timer < 10) {
-      document.getElementById("ID").innerHTML = "00:0" + timer--;
+      document.querySelector("#timer").innerHTML = "00:0" + timer--;
     }
     else {
-      document.getElementById("ID").innerHTML = "00:" + timer--;
+      document.querySelector("#timer").innerHTML = "00:" + timer--;
     }
   }
   else {
@@ -20,7 +20,7 @@ function startTimer () {
 };
 
 function stopTimer() {
-  document.getElementById("ID").innerText = "00:00";
+  document.querySelector("#timer").innerText = "00:00";
   clearInterval(timeReset);
 };
 
