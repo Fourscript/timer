@@ -1,8 +1,0 @@
-(07/13/21)
-Defined 5 levels as goals for the timer
-Worked up to Level 2
-Left of with researching the "Date()" function for a more accurate timer
-
-(07/16/21)
-
-
