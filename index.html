@@ -1,50 +1,25 @@
 <!DOCTYPE html>
 <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="./style.css">
+        <script src="./index.js"></script>
+        <title>Fourscript | Timer</title>
+    </head>
 
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./style.css">
-    <script src="./index.js"></script>
-    <title>Fourscript | Timer</title>
-</head>
+    <body onload="disableButtons()">
+        <button type="button" class="set" id="one" onclick="setTimer(1)">1 MIN</button>
+        <button type="button" class="set" id="five" onclick="setTimer(5)">5 MIN</button>
+        <button type="button" class="set" id="ten" onclick="setTimer(10)">10 MIN</button>
+        <button type="button" class="set" id="fifteen" onclick="setTimer(15)">15 MIN</button>
+        <button type="button" class="set" id="twenty" onclick="setTimer(20)">20 MIN</button>
 
-<body onload="disableButtons()">
-    <button type="button" class="set" id="one" onclick="setTimer(1)">1 MIN</button>
-    <button type="button" class="set" id="five" onclick="setTimer(5)">5 MIN</button>
-    <button type="button" class="set" id="ten" onclick="setTimer(10)">10 MIN</button>
-    <button type="button" class="set" id="fifteen" onclick="setTimer(15)">15 MIN</button>
-    <button type="button" class="set" id="twenty" onclick="setTimer(20)">20 MIN</button>
-<!-- 
-    <br><br><br>
-    <label class="container" id="one" onclick="setTimer(1)">One
-        <input type="radio" name="radio" checked="false" class="container" id="one" >
-        <span class="checkmark"></span>
-    </label>
-    <label class="container" id="five" onclick="setTimer(5)">Five
-        <input type="radio" name="radio" checked="false" class="container" id="five" >
-        <span class="checkmark"></span>
-    </label>
-    <label class="container" id="ten" onclick="setTimer(10)">Ten
-        <input type="radio" name="radio" checked="true" class="container" id="ten" >
-        <span class="checkmark"></span>
-    </label>
-    <label class="container" id="twenty" onclick="setTimer(20)">Twenty
-        <input type="radio" name="radio" checked="false" class="container" id="twenty" >
-        <span class="checkmark"></span>
-    </label>
-    <br><br><br> -->
+        <div id="timer">00:00</div>
 
-    <div id="timer">00:00 minutes</div>
-
-    <button type="button" class="waiting" id="start" onclick="startTimer()">Start</button>
-    <button type="button" class="functioning" id="pause" onclick="pauseTimer()" hidden="true">Pause</button>
-    <button type="button" class="functioning" id="stop" onclick="stopTimer()" hidden="true">Stop</button>
-    <button type="button" class="functioning" id="add30" onclick="add30()" hidden="true">+30 sec</button>
-
-
-
-</body>
-
+        <button type="button" class="waiting" id="start" onclick="startTimer()">Start</button>
+        <button type="button" class="functioning" id="pause" onclick="pauseTimer()">Pause</button>
+        <button type="button" class="functioning" id="stop" onclick="stopTimer()">Stop</button>
+    </body>
 </html>
