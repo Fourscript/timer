@@ -9,7 +9,9 @@
         <title>Fourscript | Timer</title>
     </head>
 
+    <!-- When the page loads, run function to disable certain buttons -->
     <body onload="disableButtons()">
+        <!-- When you click a button, "set the timer" (pass minute value) and enable the Start button -->
         <button type="button" class="set" id="one" onclick="setTimer(1)">1 MIN</button>
         <button type="button" class="set" id="five" onclick="setTimer(5)">5 MIN</button>
         <button type="button" class="set" id="ten" onclick="setTimer(10)">10 MIN</button>
@@ -18,6 +20,7 @@
 
         <div id="timer">00:00</div>
 
+        <!-- When you click an action, trigger that respective function -->
         <button type="button" class="waiting" id="start" onclick="startTimer()">Start</button>
         <button type="button" class="functioning" id="pause" onclick="pauseTimer()">Pause</button>
         <button type="button" class="functioning" id="stop" onclick="stopTimer()">Stop</button>

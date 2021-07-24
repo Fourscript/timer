@@ -7,10 +7,19 @@ function disableButtons() {
 let newValue = 0;
 let userChoice;
 
-function setTimer(options) {
+const timerSelected = {
+    1: 60000,
+    5: 300000,
+    10: 600000,
+    15: 900000,
+    20: 1200000
+};
+
+function setTimer(minutes) {
     document.querySelector("#start").disabled = false;
-    document.querySelector("#timer").innerHTML = (options < 10 ? "0" + options : options) + ":00";
-    userChoice = options;
+    document.querySelector("#timer").innerHTML = (minutes < 10 ? "0" + minutes : minutes) + ":00";
+    
+    userChoice = minutes;
     newValue = timerSelected[userChoice];
 };
 
@@ -28,11 +37,12 @@ function startTimer() {
     document.querySelector("#pause").disabled = false;
     document.querySelector("#stop").disabled = false;
 
-    start = Date.now() + 1000;
-    interval = setInterval(decrement, 1000);
+    // Date.now() = give me the milliseconds that have passed, since 1970
+    start = Date.now() + 1;
+    interval = setInterval(decrement, 1);
 };
 
-let timeElapsed = 0;
+let timeElapsed;
 let dateDifference = 0;
 
 function stopTimer () {
@@ -51,49 +61,36 @@ function stopTimer () {
     document.querySelector("#stop").disabled = true;
 };
 
-let run = true;
-
-const timerSelected = {
-    1: 60000,
-    5: 300000,
-    10: 600000,
-    15: 900000,
-    20: 1200000,
-};
+let running = true;
 
 function pauseTimer () {
-    if (run) {
+    if (running) {
         timeElapsed += dateDifference;
-        run = false;
+        running = false;
         document.querySelector("#pause").innerHTML = "Resume";
+        clearInterval(interval);
     }
     else {
         newValue = timerSelected[userChoice] - timeElapsed;
-        run = true;
+        running = true;
         document.querySelector("#pause").innerHTML = "Pause";
-
-        document.querySelector("#timer").innerHTML =
-        (timeShownMinutes < 10 ? "0" + timeShownMinutes : timeShownMinutes) + 
-        ":" + (timeShownSeconds < 10 ? "0" + timeShownSeconds : timeShownSeconds);
-
-        start = Date.now();
+        start = Date.now() + 1;
+        interval = setInterval(decrement, 1);
     }
 };
 
 function decrement() {
-    if (run) {
-        dateDifference = Math.max(0, Date.now() - start);
+    dateDifference = Math.max(0, Date.now() - start);
 
-        let timeRemaining = (newValue - dateDifference) / 1000;
-        let timeShownMinutes = Math.floor(timeRemaining / 60);
-        let timeShownSeconds = Math.floor(timeRemaining % 60); 
+    let timeRemaining = (newValue - dateDifference) / 1000;
+    let timeShownMinutes = Math.floor(timeRemaining / 60);
+    let timeShownSeconds = Math.floor(timeRemaining % 60); 
 
-        document.querySelector("#timer").innerHTML =
-            (timeShownMinutes < 10 ? "0" + timeShownMinutes : timeShownMinutes) + 
-            ":" + (timeShownSeconds < 10 ? "0" + timeShownSeconds : timeShownSeconds);
-
-        if(timeShownMinutes + timeShownSeconds == 0) {
-            stopTimer();
-        }
+    document.querySelector("#timer").innerHTML =
+        (timeShownMinutes < 10 ? "0" + timeShownMinutes : timeShownMinutes) + 
+        ":" + (timeShownSeconds < 10 ? "0" + timeShownSeconds : timeShownSeconds);
+    
+    if(timeShownMinutes + timeShownSeconds == 0) {
+        stopTimer();
     }
 };
