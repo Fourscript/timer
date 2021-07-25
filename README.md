@@ -16,5 +16,5 @@
 > **Description:** Simple timer with start, pause, and stop features.  
 > **Languages:** HTML, CSS, Javascript  
 > **Start Date:** 07/13/2021  
-> **End Date:** --  
+> **End Date:** 07/23/2021  
 > **Screenshot(s):** --  
